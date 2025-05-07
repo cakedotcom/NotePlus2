@@ -1,12 +1,18 @@
 import React from 'react'
 import Navbar from '../components/Navbar.jsx'
-import Sidebar from '../components/Sidebar.jsx'
+
+import Content from '../components/Content.jsx'
 const Dashboard = () => {
   return (
     <div className='bg-black/90 h-screen overflow-y-hidden'>
-        <Navbar/>
-        <Sidebar/>
         
+        <Navbar/>
+        
+        <Content/>                
+            
+        
+        
+
     </div>
   )
 }

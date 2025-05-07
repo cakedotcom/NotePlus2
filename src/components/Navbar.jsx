@@ -17,7 +17,7 @@ const Navbar = () => {
       </div>
 
       <div class="dropdown dropdown-end">
-        <div tabindex="0" role="button" class="cursor-pointer outline-none m-1 flex justify-center items-center gap-3">
+        <div tabindex="0" role="button" className="cursor-pointer outline-none m-1 flex justify-center items-center gap-3">
         <img
           className="rounded-full w-8 h-8 shadow-2xl"
           src={Toni}
@@ -27,7 +27,7 @@ const Navbar = () => {
         </div>
         <ul
           tabindex="0"
-          class="dropdown-content menu bg-[#F5EEDC] rounded-box z-1 w-52 p-2 shadow-sm"
+          className="dropdown-content menu bg-[#F5EEDC] rounded-box z-1 w-52 p-2 shadow-sm"
         >
           <li>
             <a>Item 1</a>
