@@ -8,28 +8,28 @@ import { FaArchive } from "react-icons/fa";
 const Sidebar = () => {
   return (
     <div className='bg-gray-400/15 w-60 h-screen'>
-        <div className='flex flex-col flex-start py-10 gap-12 px-10 fade-in'>
-            <div className='cursor-pointer glow-text text-[#F5EEDC] hover:text-blue-300 duration-300 flex items-center gap-2'>
+        <div className='flex flex-col flex-start py-10 gap-12 px-5 fade-in'>
+            <div className='cursor-pointer py-3 rounded-lg hover:bg-black/25 text-[#F5EEDC] hover:text-blue-300 duration-300 flex items-center gap-2'>
             <BsMenuButtonFill />
             <p className=' font-bold text-lg '>All Notes</p>
             </div>
 
-            <div className='cursor-pointer text-[#F5EEDC] glow-text hover:text-blue-300 duration-300 flex items-center gap-2'>
+            <div className='cursor-pointer py-3 rounded-lg text-[#F5EEDC] hover:bg-black/25 hover:text-blue-300 duration-300 flex items-center gap-2'>
             <FaFolderTree  />
             <p className=' font-bold text-lg '>Folder</p>
             </div>
 
-            <div className='cursor-pointer text-[#F5EEDC] glow-text hover:text-blue-300 duration-300 flex items-center gap-2'>
+            <div className='cursor-pointer py-3 rounded-lg text-[#F5EEDC] hover:bg-black/25 hover:text-blue-300 duration-300 flex items-center gap-2'>
             <MdOutlineMicExternalOn  />
             <p className=' font-bold text-lg '>Voice Notes</p>
             </div>
 
-            <div className='cursor-pointer text-[#F5EEDC] glow-text hover:text-blue-300 duration-300 flex items-center gap-2'>
+            <div className='cursor-pointer py-3 rounded-lg text-[#F5EEDC] hover:bg-black/25 hover:text-blue-300 duration-300 flex items-center gap-2'>
             <FaPenToSquare  />
             <p className=' font-bold text-lg '>Handwriting</p>
             </div>
             
-            <div className='cursor-pointer text-[#F5EEDC] glow-text hover:text-blue-300 duration-300 flex items-center gap-2'>
+            <div className='cursor-pointer py-3 rounded-lg text-[#F5EEDC] hover:bg-black/25 hover:text-blue-300 duration-300 flex items-center gap-2'>
             <FaArchive />
             <p className=' font-bold text-lg '>Archive</p>
             </div>
