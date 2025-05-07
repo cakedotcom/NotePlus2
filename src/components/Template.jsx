@@ -4,6 +4,7 @@ import { FaPlus } from "react-icons/fa6";
 import { GrTasks } from "react-icons/gr";
 import { MdOutlineMicExternalOn } from "react-icons/md";
 import { FaPenNib } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const Template = () => {
   return (
     <div className="text-[#F5EEDC] w-full h-auto px-8 py-5">
@@ -11,9 +12,9 @@ const Template = () => {
         <p className="text-2xl font-bold">Templates</p>
         <div className="mt-5 flex gap-6">
           <div>
-            <div className="border-4 border-dotted inline-block rounded-2xl py-12 px-28">
+            <Link to="/NewNote" className="border-4 border-dotted inline-block rounded-2xl py-12 px-28">
               <FaPlus className="w-6 h-6" />
-            </div>
+            </Link>
             <p className="font-medium">Blank Note</p>
           </div>
           <div>

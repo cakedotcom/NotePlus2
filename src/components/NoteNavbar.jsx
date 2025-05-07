@@ -1,9 +1,7 @@
 import React from "react";
 import { GiPerpendicularRings } from "react-icons/gi";
 import Toni from "../assets/toni.png";
-import { Input } from '../components/ui/input';
-import { FaSearch } from "react-icons/fa";
-const Navbar = () => {
+const NoteNavbar = () => {
   return (
     <div className=" py-4 px-10 fade-in flex justify-between items-center">
       <div className="flex">
@@ -13,11 +11,7 @@ const Navbar = () => {
         <GiPerpendicularRings className="text-blue-300 w-8 h-8 " />
       </div>
 
-      <div className="flex items-center gap-3">
-        <Input placeholder="Search..." className="w-80 bg-[#F5EEDC] h-8"/>
-        <FaSearch className="text-[#F5EEDC]"/>
-        
-      </div>
+
 
       <div class="dropdown dropdown-end">
         <div tabindex="0" role="button" className="cursor-pointer outline-none m-1 flex justify-center items-center gap-3">
@@ -44,4 +38,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NoteNavbar;
