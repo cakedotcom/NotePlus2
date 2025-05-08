@@ -8,10 +8,7 @@ const Dashboard = () => {
         
         <Navbar/>
         
-        <Content/>                
-            
-        
-        
+        <Content/>                        
 
     </div>
   )

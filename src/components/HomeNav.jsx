@@ -1,14 +1,25 @@
 import React from "react";
 import { GiPerpendicularRings } from "react-icons/gi";
 import Toni from "../assets/toni.png";
-import { Input } from '../components/ui/input';
+import { Input } from "../components/ui/input";
 import { FaSearch } from "react-icons/fa";
-import { Link } from "react-router-dom"
-
+import { Link } from "react-router-dom";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../components/ui/dialog";
+import { Label } from "../components/ui/label";
+import { Button, buttonVariants } from "../components/ui/button";
+import { CgPassword } from "react-icons/cg";
 
 const HomeNav = () => {
   return (
-    <div className=" py-4 px-10 fade-in flex justify-between items-center">
+    <div className=" py-4 px-10 flex justify-between items-center">
       <Link to="/" className="flex">
         <p className="text-xl text-[#F5EEDC] font-bold">
           <span className="font-extrabold text-2xl">N</span>ote
@@ -17,16 +28,50 @@ const HomeNav = () => {
       </Link>
 
       <div className="flex items-center gap-12 text-[#F5EEDC]">
-        <Link to="/" className="hover:underline  duration-300 glow-text">Home</Link>
-        <Link className="hover:underline  duration-300 glow-text">About</Link>
-        <Link className="hover:underline  duration-300 glow-text">Features</Link>
+        <Link to="/" className="hover:underline  duration-300 glow-text">
+          Home
+        </Link>
+        <Link to="/About" className="hover:underline  duration-300 glow-text">
+          About
+        </Link>
+        <Link to="/Features" className="hover:underline  duration-300 glow-text">
+          Features
+        </Link>
       </div>
 
       <div className="flex items-center gap-4 text-[#F5EEDC]">
-        <p className="btn btn-ghost hover:bg-[#F5EEDC] font-bold">Log In</p>
-        <p className="btn bg-blue-200 font-bold">Sign Up</p>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button variant="outline" className={buttonVariants({class:"btn btn-ghost hover:bg-[#F5EEDC] font-bold"})}>Log In</Button>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle>Sign In</DialogTitle>
+              <DialogDescription>
+               Enter your credentials to access account.
+              </DialogDescription>
+            </DialogHeader>
+            <div className="grid gap-4 py-4">
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="name" className="text-right">
+                  Name
+                </Label>
+                <Input id="name" value="User" className="col-span-3" />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="password" className="text-right">
+                  Password
+                </Label>
+                <Input id="password" value="*********" className="col-span-3" />
+              </div>
+            </div>
+            <DialogFooter>
+              <Link to="/Dashboard"><Button type="submit">Login</Button></Link>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+        <p className="btn btn-ghost text-black bg-blue-200 font-bold">Sign Up</p>
       </div>
-      
     </div>
   );
 };

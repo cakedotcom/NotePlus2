@@ -1,4 +1,4 @@
-import React, { useState,  useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import NoteNavbar from '../components/NoteNavbar.jsx';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -10,7 +10,8 @@ import { RiLetterSpacing2 } from "react-icons/ri";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { CiMenuFries } from "react-icons/ci";
 import { Link } from "react-router-dom";
-import { FaArrowLeft } from "react-icons/fa"
+import { FaArrowLeft } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const NewNote = () => {
   const [note, setNote] = useState("");
@@ -19,16 +20,15 @@ const NewNote = () => {
   const [isClockRunning, setIsClockRunning] = useState(false);
   const [summary, setSummary] = useState("");
 
- 
-useEffect(() => {
-  if (isClockRunning) { // ✅ Only run interval if clock is enabled
-    const interval = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
+  useEffect(() => {
+    if (isClockRunning) { 
+      const interval = setInterval(() => {
+        setTime(new Date());
+      }, 1000);
     
-    return () => clearInterval(interval);
-  }
-}, [isClockRunning]);
+      return () => clearInterval(interval);
+    }
+  }, [isClockRunning]);
 
   const handleClear = () => {
     setMessage(
@@ -78,11 +78,11 @@ Cooking Steps:
           clearInterval(interval);
         }
       }, 15);
-    }, 1000); // simulate "thinking" delay
+    }, 1000);
   };
 
   const handleSummary = () => {
-    setMessage(""); // ✅ Clear previous message
+    setMessage(""); 
     setSummary(
       <p className='text-2xl text-gray-300 text-center items-center flex justify-center'>
         <span className="loading loading-infinity loading-xl"></span>AI Summarizing...
@@ -110,7 +110,17 @@ Cooking Steps:
           clearInterval(interval);
         }
       }, 15);
-    }, 1000); // simulate "thinking" delay
+    }, 1000); 
+  };
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { duration: 0.6 } },
   };
 
   return (
@@ -119,16 +129,30 @@ Cooking Steps:
       
       <Link className="px-10 text-lg font-medium flex items-center" to="/Dashboard"><FaArrowLeft />Go Back</Link>
       
-      
+      <motion.div
+        variants={fadeInUp}
+        initial="hidden"
+        animate="show"
+        className="text-center"
+      >
+        <p className='text-xl'>Untitled Note</p>
+      </motion.div>
 
-      <div>
-        <p className='text-xl text-center'>Untitled Note</p>
-      </div>
-      <div className="text-lg font-semibold text-gray-500 text-center mb-5">
+      <motion.div
+        variants={fadeIn}
+        initial="hidden"
+        animate="show"
+        className="text-lg font-semibold text-gray-500 text-center mb-5"
+      >
         {time.toLocaleTimeString()}
-      </div>
+      </motion.div>
 
-      <div className='flex items-center justify-center gap-5 mt-10'>
+      <motion.div
+        className="flex items-center justify-center gap-5 mt-10"
+        variants={fadeInUp}
+        initial="hidden"
+        animate="show"
+      >
         <Input
           placeholder="Share an idea, and AI will build on it..."
           className="w-120 py-5 shadow-lg shadow-blue-300/50"
@@ -141,20 +165,25 @@ Cooking Steps:
         >
           <LuSendToBack className="group-hover:animate-spin duration-300" />
         </Button>
-      </div>
+      </motion.div>
 
-      <div className='flex items-center justify-center gap-5 mt-10 mb-10 fade-in'>
+      <motion.div
+        variants={fadeIn}
+        initial="hidden"
+        animate="show"
+        className='flex items-center justify-center gap-5 mt-10 mb-10'
+      >
         <div className='border-2 rounded-2xl w-180 h-120 shadow-lg shadow-blue-300/50'>
           <div className='border-b border-gray-500 py-3 flex justify-between px-5'>
             <div className='flex items-center gap-3'>
               <p className='inline-block rounded-sm px-2 text-[#F5EEDC]'>Normal Text</p>
               <div className="dropdown dropdown-end">
                 <div tabIndex="0" role="button" className="cursor-pointer outline-none m-1 flex justify-center items-center gap-3">
-                <div class="tooltip tooltip-bottom" data-tip="Font">
-                  <p className="text-[#F5EEDC] rounded-sm font-semibold px-3 flex">
-                    Arial <IoMdArrowDropdown />
-                  </p>
-                </div>
+                  <div className="tooltip tooltip-bottom" data-tip="Font">
+                    <p className="text-[#F5EEDC] rounded-sm font-semibold px-3 flex">
+                      Arial <IoMdArrowDropdown />
+                    </p>
+                  </div>
                 </div>
                 <ul
                   tabIndex="0"
@@ -164,35 +193,31 @@ Cooking Steps:
                   <li><a>Times New Roman</a></li>
                 </ul>
               </div>
-              <div class="tooltip tooltip-bottom" data-tip="Image">
+              <div className="tooltip tooltip-bottom" data-tip="Image">
                 <FaRegImage />
               </div>
-              
             </div>
 
             <div className='flex items-center gap-3'>
-              <div class="tooltip tooltip-bottom" data-tip="Bold">
+              <div className="tooltip tooltip-bottom" data-tip="Bold">
                 <p className='font-extrabold'>B</p>
               </div>
-              <div class="tooltip tooltip-bottom" data-tip="Italic">
+              <div className="tooltip tooltip-bottom" data-tip="Italic">
                 <FaItalic />
               </div>
-              <div class="tooltip tooltip-bottom" data-tip="Underline">
+              <div className="tooltip tooltip-bottom" data-tip="Underline">
                 <MdOutlineFormatUnderlined />
               </div>
-              <div class="tooltip tooltip-bottom" data-tip="Text Color">
+              <div className="tooltip tooltip-bottom" data-tip="Text Color">
                 <RiLetterSpacing2 />
               </div>
-              
             </div>
 
             <div className='flex items-center gap-8'>
               <p className='bg-blue-200 text-black rounded-lg py-1 px-3 cursor-pointer'>Share</p>
-              
-              <Button onClick={handleSummary} class="tooltip tooltip-bottom" data-tip="AI Summary">
+              <Button onClick={handleSummary} className="tooltip tooltip-bottom" data-tip="AI Summary">
                 <CiMenuFries className='hover:border rounded-2xl duration-300 cursor-pointer w-6 h-6 ' />
               </Button>
-              
             </div>
           </div>
           <div className="overflow-y-auto max-h-96 p-5">
@@ -200,7 +225,7 @@ Cooking Steps:
             {summary}
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

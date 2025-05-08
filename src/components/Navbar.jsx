@@ -4,6 +4,7 @@ import Toni from "../assets/toni.png";
 import { Input } from '../components/ui/input';
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom"
+import { RiSettingsLine } from "react-icons/ri";
 const Navbar = () => {
   return (
     <div className=" py-4 px-10 fade-in flex justify-between items-center">
@@ -34,10 +35,14 @@ const Navbar = () => {
           className="dropdown-content menu bg-[#F5EEDC] rounded-box z-1 w-52 p-2 shadow-sm"
         >
           <li>
-            <a>Item 1</a>
+            <Link to="/" className="bg-red-300">Logout</Link>
           </li>
+
           <li>
-            <a>Item 2</a>
+            <div>
+            <RiSettingsLine className="w-5 h-5 text-black"/>
+            <p>Settings</p>
+            </div>
           </li>
         </ul>
       </div>
