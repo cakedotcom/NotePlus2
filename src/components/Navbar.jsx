@@ -3,15 +3,16 @@ import { GiPerpendicularRings } from "react-icons/gi";
 import Toni from "../assets/toni.png";
 import { Input } from '../components/ui/input';
 import { FaSearch } from "react-icons/fa";
+import { Link } from "react-router-dom"
 const Navbar = () => {
   return (
     <div className=" py-4 px-10 fade-in flex justify-between items-center">
-      <div className="flex">
+      <Link to="/" className="flex">
         <p className="text-xl text-[#F5EEDC] font-bold">
           <span className="font-extrabold text-2xl">N</span>ote
         </p>
         <GiPerpendicularRings className="text-blue-300 w-8 h-8 " />
-      </div>
+      </Link>
 
       <div className="flex items-center gap-3">
         <Input placeholder="Search..." className="w-80 bg-[#F5EEDC] h-8"/>
